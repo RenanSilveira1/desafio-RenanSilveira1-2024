@@ -1,5 +1,5 @@
 class Recinto {
-    constructor(numero, bioma, tamanhoTotal, animais = []){
+    constructor(numero, bioma, tamanhoTotal, animais = []) {
         this.numero = numero;
         this.bioma = bioma;
         this.tamanhoTotal = tamanhoTotal;
@@ -7,21 +7,14 @@ class Recinto {
     }
 
     calculaEspacoOcupado(permitidos) {
-        let espacoOcupado = 0;
-        for (let animal of this.animais) {
-            espacoOcupado += permitidos[animal.especie].tamanho * animal.quantidade;
-        }
-
-        return espacoOcupado;
+        return this.animais.reduce((espaco, animal) => {
+            return espaco + permitidos[animal.especie].tamanho * animal.quantidade;
+        }, 0);
     }
 
-    verificaOutraEspecie(especie){
-        return this.animais.some(animal => animal.especie !== especie);
-    }
-
-    adicionaEspecie(especie, quantidade) {
-        this.animais.push({ especie, quantidade });
+    verificaOutraEspecie(especieAtual) {
+        return this.animais.some(animal => animal.especie !== especieAtual);
     }
 }
 
-export default Recinto;
+export { Recinto };

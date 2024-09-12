@@ -1,18 +1,14 @@
 class Animal {
-    constructor(especie, tamanho, biomas, carnivoro = false){
+    constructor(especie, tamanho, biomas, carnivoro) {
         this.especie = especie;
         this.tamanho = tamanho;
         this.biomas = biomas;
         this.carnivoro = carnivoro;
     }
 
-    biomaConfortavel(biomaRecinto){
-        if(biomaRecinto === 'savana e rio') {
-            return this.biomas.includes('savana') || this.biomas.includes('rio');
-        }
-
-        return this.biomas.includes(biomaRecinto);
+    biomaConfortavel(bioma) {
+        return this.biomas.includes(bioma);
     }
 }
 
-export default Animal;
+export { Animal };
