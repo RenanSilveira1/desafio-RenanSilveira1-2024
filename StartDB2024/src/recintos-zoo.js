@@ -70,7 +70,7 @@ class RecintosZoo {
         }
 
         if (recintosViaveis.length === 0) {
-            return { erro: 'Não há recinto apto para o animal' };
+            return { erro: 'Não há recinto viável' };
         }
 
         return { recintosViaveis };
